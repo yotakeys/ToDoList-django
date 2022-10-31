@@ -3,7 +3,8 @@
 <table>
     {% for task in tasks %}
     <tr>
-        <th>{{task}}</th>
+        <td>{{task.title}}</td>
+        <td><a href="{% url 'taskdetail' task.id %}">View</a></td>
     </tr>
     {% endfor %}
 </table>
