@@ -7,6 +7,7 @@
         <td>{{task.title}}</td>
         <td><a href="{% url 'taskdetail' task.id %}">View</a></td>
         <td><a href="{% url 'taskupdate' task.id %}">Update</a></td>
+        <td><a href="{% url 'taskdelete' task.id %}">delete</a></td>
     </tr>
     {% endfor %}
 </table>

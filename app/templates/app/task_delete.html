@@ -1,0 +1,8 @@
+<h1>{{task.title}}</h1>
+
+<h3>are you sure want to delete</h3>
+
+<form method="POST" action ="">
+    {% csrf_token %}
+    <input type = "submit" value="Delete">
+</form>
