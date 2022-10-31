@@ -1,10 +1,12 @@
 <h1>List Task</h1>
 
+<a href="{% url 'taskcreate' %}">Add</a>
 <table>
     {% for task in tasks %}
     <tr>
         <td>{{task.title}}</td>
         <td><a href="{% url 'taskdetail' task.id %}">View</a></td>
+        <td><a href="{% url 'taskupdate' task.id %}">Update</a></td>
     </tr>
     {% endfor %}
 </table>
