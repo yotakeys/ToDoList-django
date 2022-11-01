@@ -7,6 +7,12 @@
 
 <h1>List Task</h1>
 <a href="{% url 'taskcreate' %}">Add</a>
+
+<form method="GET">
+    <input type="text" name="search" value="{{search_value}}" />
+    <input type="submit" value="Search">
+</form>
+
 <table>
     {% for task in tasks %}
     <tr>
