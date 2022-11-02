@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
@@ -58,10 +59,13 @@ class TaskList(LoginRequiredMixin, ListView):
         return context
 
 
-class TaskDetail(LoginRequiredMixin, DetailView):
+class TaskDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Task
     Template_name = 'app/task_detail.html'
     context_object_name = "task"
+
+    def test_func(self):
+        return str(self.request.user.get_username()) == str(self.get_object().user)
 
 
 class TaskCreate(LoginRequiredMixin, CreateView):
@@ -75,15 +79,21 @@ class TaskCreate(LoginRequiredMixin, CreateView):
         return super(TaskCreate, self).form_valid(form)
 
 
-class TaskUpdate(LoginRequiredMixin, UpdateView):
+class TaskUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Task
     fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('tasks')
     template_name = 'app/task_update.html'
 
+    def test_func(self):
+        return str(self.request.user.get_username()) == str(self.get_object().user)
 
-class TaskDelete(LoginRequiredMixin, DeleteView):
+
+class TaskDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
     template_name = 'app/task_delete.html'
+
+    def test_func(self):
+        return str(self.request.user.get_username()) == str(self.get_object().user)
