@@ -59,15 +59,6 @@ class TaskList(LoginRequiredMixin, ListView):
         return context
 
 
-class TaskDetail(LoginRequiredMixin, UserPassesTestMixin, DetailView):
-    model = Task
-    Template_name = 'app/task_detail.html'
-    context_object_name = "task"
-
-    def test_func(self):
-        return str(self.request.user.get_username()) == str(self.get_object().user)
-
-
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title', 'description']

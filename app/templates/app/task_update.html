@@ -2,13 +2,19 @@
 
 {% block content %}
 
-<h1>Update Task</h1>
+<div class="header">
+    <a href="{% url 'tasks' %}">&#8592; Back</a>
+</div>
 
-<a href="{% url 'tasks' %}">Go back</a>
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="submit">
-</form>
+
+<div class="body">
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class= "button" type="submit" value="Update">
+    </form>
+
+</div>
 
 {% endblock content %}
