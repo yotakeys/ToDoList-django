@@ -7,10 +7,16 @@
 </div>
 
 <div class="body">
-    <form method="POST">
+    <form method="POST" >
         {% csrf_token %}
-        {{form.as_p}}
-        <input class="button" type="submit" value="register">
+        <label>{{form.username.label}}</label>
+        {{form.username}}
+        <label>{{form.password1.label}}</label>
+        {{form.password1}}
+        <label>{{form.password2.label}}</label>
+        {{form.password2}}
+        {{form.errors}}
+        <input class="button" style="margin-top:10px" type="submit" value="register">
     </form>
     <br>
     <p style="display:inline">Already Have an Account? </p>
