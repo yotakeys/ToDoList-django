@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>To Do List</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color:  white;
+        font-family: 'Poppins', sans-serif;
+        padding: 50px;
+      }
+
+      .container {
+        max-width: 550px;
+        margin: auto;
+        background-color:white;
+        box-shadow: 2px 2px 13px -4px black;
+        border-radius: 20px;
+      }
+
+      .header{
+        padding:15px;
+        color : white;
+        background-color : rgb(237, 85, 85);
+        border-radius: 20px 20px 0 0;
+      }
+      .header a{
+        color : white;
+        text-decoration: none;
+      }
+
+      .task{
+        display:flex;
+        align-items : center;
+        justify-content : space-between;
+        padding: 20px;
+        background-color :white;
+        border-top:1px solid rgb(237, 85, 85);
+
+      }
+
+      .task-title{
+        display:flex;
+      }
+
+      .task-title a{
+        text-decoration: none;
+        color : black;
+        margin-left : 10px;
+      }
+
+      .complete-icon{
+        height: 20px;
+        width: 20px;
+        background-color : green;
+        border-radius: 50%;
+      }
+
+      .incomplete-icon{
+        height: 20px;
+        width: 20px;
+        background-color : grey;
+        border-radius: 50%;
+      }
+
+      .delete-task{
+        text-decoration: none;
+        font-size :30px;
+      }
+
+      #search-add-container{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding : 10px;
+      }
+
+      #add-task{
+        color : rgb(237, 85, 85);
+        text-decoration: none;
+        font-size :30px;
+      }
+
+      .button{
+        border: 1px solid rgb(237, 85, 85);
+        background-color :white;
+        color:rgb(237, 85, 85);
+        padding: 10px;
+        font-size :15px;
+        border-radius : 10px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      textarea{
+        border :1px solid rgb(237, 85, 85);
+        border-radius : 10px;
+        padding: 10px;
+        width:90%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% block content %} 
+      
+      {% endblock content %}
+    </div>
+  </body>
+</html>

@@ -1,25 +1,48 @@
-{% if request.user.is_authenticated%}
-<h1>{{request.user}}</h1>
-<a href="{% url 'logout' %}">Logout</a>
-{% else %}
-<a href ="{% url 'login' %}">login</a>
-{% endif %}
+{% extends "maintemplate.html" %} 
 
-<h1>List Task</h1>
-<a href="{% url 'taskcreate' %}">Add</a>
+{% block content %} 
 
-<form method="GET">
+<div class="header">
+  <div>
+    <h1 style="margin:0">Hello {{request.user|title}}</h1>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">login</a>
+    {% endif %}
+
+    <h3 style="color:black;margin-top:5px">{{count}} Incomplete Task{{count|pluralize:"s"}}</h3>
+  </div>
+</div>
+
+
+<div id="search-add-container">
+  <form method="GET" style="margin-top:0;display:flex;">
     <input type="text" name="search" value="{{search_value}}" />
-    <input type="submit" value="Search">
-</form>
+    <input class="button" type="submit" value="Search" />
+  </form>
+  <a id="add-task" href="{% url 'taskcreate' %}">&#x2b</a>
+</div>
 
-<table>
-    {% for task in tasks %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'taskdetail' task.id %}">View</a></td>
-        <td><a href="{% url 'taskupdate' task.id %}">Update</a></td>
-        <td><a href="{% url 'taskdelete' task.id %}">delete</a></td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="task-container">
+  {% for task in tasks %}
+  <div class="task">
+    {% if task.complete %}
+    <div class="task-title">
+      <div class="complete-icon"></div>
+      <s><a href="{% url 'taskupdate' task.id %}">{{task.title}}</a></s>
+    </div>
+    <a class="delete-task" style = "color:rgb(237, 85, 85)" href="{% url 'taskdelete' task.id %}">&#215</a>
+    {% else %}
+    <div class="task-title">
+      <div class="incomplete-icon"></div>
+      <a href="{% url 'taskupdate' task.id %}">{{task.title}}</a>
+    </div>
+    <a class="delete-task" style = "color:rgb(237, 85, 85)" href="{% url 'taskdelete' task.id %}">&#215</a>
+    {% endif %}
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock content %}
