@@ -1,6 +1,6 @@
-#To Do List Web Using Django (Class based view), DB : SQLITE
+<h1>To Do List Web Using Django (Class based view) </h1>
 
-User Need login/register to see their own task list, Full CRUD Implementation for task list (Add Task, Delete Task, Read Task, Update Task)
+User Need login/register to see their own task list, Full CRUD Implementation for task list (Add Task, Delete Task, Read Task, Update Task), Using SQLITE database
 
 Preview:
 
