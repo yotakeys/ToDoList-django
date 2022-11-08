@@ -1,8 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode
 
-
+Procfile
+runtime.txt
 db.sqlite3
+env/
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
