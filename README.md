@@ -2,6 +2,15 @@
 
 User Need login/register to see their own task list, Full CRUD Implementation for task list (Add Task, Delete Task, Read Task, Update Task), Using SQLITE database
 
+Dont Forget to do Migration
+
+```
+python manage.py collectstatic
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
 Preview:
 
 Login Page
