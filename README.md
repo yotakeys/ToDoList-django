@@ -34,8 +34,5 @@ Delete Task
 Update and View Task
 ![ViewUpdateTask](https://user-images.githubusercontent.com/85614845/199721931-600b1972-f9ea-454d-be51-e54b7b8b2978.jpg)
 
-
-Dont Forget To Do Migration
-
 Learn:
 https://youtu.be/llbtoQTt4qw
